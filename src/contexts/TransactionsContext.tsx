@@ -2,7 +2,7 @@ import { createContext, useEffect, useState, type ReactNode } from "react";
 interface Transactions {
     id: number;
     description: string;
-    type: 'entries' | 'exits';
+    type: 'entry' | 'exit';
     category: string;
     value: number;
     createdAt: string;
@@ -25,7 +25,6 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
         const data = await response.json()
 
         setTransactions(data)
-        console.log("Data: ", transactions)
     }
 
     useEffect(() => {
