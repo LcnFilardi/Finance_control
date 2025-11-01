@@ -1,9 +1,34 @@
-import { Header } from "../../componentes/Header";
-import { Summary } from "../../componentes/Summary";
+import { useEffect, useState } from "react";
+import { Header } from "../../components/Header";
+import { Summary } from "../../components/Summary";
 import { SearchForm } from "./components/SearchForm";
 import { PriceHighlight, TransactionsContainer, TransactionsTable } from "./styles";
 
+interface Transactions {
+    id: number;
+    description: string;
+    type: 'entries' | 'exits';
+    category: string;
+    value: number;
+    createdAt: string;
+}
+
 export function Transations() {
+
+    const [transactions, setTransactions] = useState<Transactions[]>([])
+
+    async function getTransactions() {
+        const response = await fetch('http://localhost:3000/transactions')
+        const data = await response.json()
+
+        setTransactions(data)
+        console.log("Data: ", transactions)
+    }
+
+    useEffect(() => {
+        getTransactions()
+    }, [])
+
     return (
 
         <div>
@@ -12,31 +37,25 @@ export function Transations() {
 
             <TransactionsContainer>
 
-                <SearchForm/>
-                
+                <SearchForm />
+
                 <TransactionsTable>
                     <table>
                         <tbody>
-                            <tr>
-                                <td width="60%">Desenvolvimento de site</td>
-                                <td width={"20%"}>
-                                    <PriceHighlight variant="income">
-                                        R$ 12.000,00
-                                    </PriceHighlight>
-                                </td>
-                                <td>Venda</td>
-                                <td>13/04/2022</td>
-                            </tr>
-                            <tr>
-                                <td width="60%">Alimentação</td>
-                                <td width={"20%"}>
-                                    <PriceHighlight variant="outcome">
-                                        - R$ 60,00
-                                    </PriceHighlight>
-                                </td>
-                                <td>Venda</td>
-                                <td>13/04/2022</td>
-                            </tr>
+                            {transactions.map(transaction => {
+                                return (
+                                    <tr key={transaction.id}>
+                                        <td width="60%">{transaction.description}</td>
+                                        <td width={"20%"}>
+                                            <PriceHighlight variant={transaction.type}>
+                                                {transaction.value}
+                                            </PriceHighlight>
+                                        </td>
+                                        <td>{transaction.category}</td>
+                                        <td>{transaction.createdAt}</td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
                 </TransactionsTable>
