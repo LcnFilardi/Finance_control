@@ -6,7 +6,7 @@
             "type": "entry",
             "category": "Venda",
             "value": 1400,
-            "createdAt":"2025-10-31T03:15:49.315Z"
+            "createdAt":"2025-10-27T03:15:49.315Z"
         },
         {
             "id": 2,
@@ -14,7 +14,15 @@
             "type": "exit",
             "category": "Compra",
             "value": 500,
-            "createdAt":"2025-10-31T03:15:19.315Z"
+            "createdAt":"2025-10-01T03:15:19.315Z"
+        },
+        {
+            "id": 3,
+            "description":"Cartão de crédito",
+            "type": "exit",
+            "category": "Compra",
+            "value": 230,
+            "createdAt":"2025-10-23T03:15:19.315Z"
         }
     ] 
 }
