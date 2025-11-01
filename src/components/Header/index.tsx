@@ -1,7 +1,7 @@
 import { NewTransactionModal } from "../NewTransactionModal";
 import { HeaderContainer, HeaderContent, NewTransationButton } from "./styles";
 // import LogoFinance from '../../assets/logo.svg'
-import { Dialog, DialogClose, DialogContent, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, Trigger } from "@radix-ui/react-dialog";
+import { Dialog, DialogTrigger} from "@radix-ui/react-dialog";
 
 export function Header() {
 
