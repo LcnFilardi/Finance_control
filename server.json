@@ -3,7 +3,7 @@
         {
             "id": 1,
             "description":"Desenvolvimento de software",
-            "type": "entries",
+            "type": "entry",
             "category": "Venda",
             "value": 1400,
             "createdAt":"2025-10-31T03:15:49.315Z"
@@ -11,9 +11,9 @@
         {
             "id": 2,
             "description":"Compra de roupa",
-            "type": "exits",
+            "type": "exit",
             "category": "Compra",
-            "value": -500,
+            "value": 500,
             "createdAt":"2025-10-31T03:15:19.315Z"
         }
     ] 
