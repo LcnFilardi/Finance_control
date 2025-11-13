@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { api } from "../lib/axios";
 import { createContext } from "use-context-selector";
 interface Transactions {
@@ -41,7 +41,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
         setTransactions(response.data)
     }
 
-    async function createNewTransaction (data: TransactionsCreate) {
+    const createNewTransaction = useCallback(async(data: TransactionsCreate) => {
         // await new Promise(response => setTimeout(response, 2000))
         
         const {description, value, type, category} = data;
@@ -54,7 +54,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
             createdAt: new Date(),
         })
         setTransactions(state => [response.data,...state])
-    }
+    }, [])
 
     useEffect(() => {
         getTransactions()
