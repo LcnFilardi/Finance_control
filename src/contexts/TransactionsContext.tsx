@@ -53,12 +53,6 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
             value,
             createdAt: new Date(),
         })
-        /* await api.post('/transactions', {
-            description: data.description,
-            category: data.category,
-            type: data.type,
-            value: data.value
-        }) */
         setTransactions(state => [response.data,...state])
     }
 
