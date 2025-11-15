@@ -1,12 +1,14 @@
-import { DialogPortal, DialogTitle} from "@radix-ui/react-dialog";
-import { CloseButton, Content, Overlay, TransactionType, TypeButton } from "./styles";
-import { TransactionsContext } from "../../contexts/TransactionsContext";
-import { useContextSelector } from "use-context-selector";
-import { Controller, useForm } from "react-hook-form"
-import * as z from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod';
+import { DialogPortal, DialogTitle } from "@radix-ui/react-dialog";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
+import { Controller, useForm } from "react-hook-form";
+import * as z from 'zod';
+import { useApiTransactions } from '../../hooks/usetransactions';
+import { CloseButton, Content, Overlay, TransactionType, TypeButton } from "./styles";
 
+interface NewTransactionsProps {
+    closeDialog: () => void 
+}
 
 const newTransactionFormSchema = z.object({
     description: z.string(),
@@ -16,12 +18,10 @@ const newTransactionFormSchema = z.object({
 })
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
-export function NewTransactionModal() {
+export function NewTransactionModal({closeDialog}: NewTransactionsProps) {
 
-    const createNewTransaction = useContextSelector(TransactionsContext, (context) => {
-        return context.createNewTransaction
-    })
-
+    const {createTransaction} = useApiTransactions() 
+    
     const {
         control,
         handleSubmit,
@@ -41,25 +41,29 @@ export function NewTransactionModal() {
         // await new Promise(response => setTimeout(response, 2000))
         const { description, type, category, value } = data
 
-        await createNewTransaction({
+        await createTransaction({
             description,
             type,
             category,
             value,
         })
 
-        reset()
+        reset();
+        closeDialog();
     }
 
     return (
-        <DialogPortal>
+        <DialogPortal >
             <Overlay />
 
-            <Content>
+            <Content >
                 <DialogTitle>Nova Transação</DialogTitle>
 
                 <CloseButton>
-                    <X size={24} />
+                    <X size={24}
+                    
+                    
+                    />
                 </CloseButton>
 
                 <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
