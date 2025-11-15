@@ -5,6 +5,6 @@ export interface TransactionCreate {
     value: number;
 }
 
-export interface TransactionUpdate {
-
-}
+export type TransactionUpdate = Partial<TransactionCreate> & {
+  id: number;
+};

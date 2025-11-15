@@ -3,7 +3,7 @@ import { DialogPortal, DialogTitle } from "@radix-ui/react-dialog";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from 'zod';
-import { useApiTransactions } from '../../hooks/usetransactions';
+import { useApiTransactions } from '../../hooks/useTransactions';
 import { CloseButton, Content, Overlay, TransactionType, TypeButton } from "./styles";
 
 interface NewTransactionsProps {

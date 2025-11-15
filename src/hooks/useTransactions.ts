@@ -1,4 +1,4 @@
-import type { TransactionCreate } from "../@types/Transactions";
+import type { TransactionCreate, TransactionUpdate } from "../@types/Transactions";
 import { api } from "../lib/axios";
 
 
@@ -18,11 +18,11 @@ export function useApiTransactions() {
     return data;
   }
 
-//   async function updateTransaction(payload: TransactionUpdate) {
-//     const { id, ...fields } = payload;
-//     const { data } = await api.put(`/transactions/${id}`, fields);
-//     return data;
-//   }
+  async function updateTransaction(payload: TransactionUpdate) {
+    const { id, ...fields } = payload;
+    const { data } = await api.put(`/transactions/${id}`, fields);
+    return data;
+  }
 
   async function deleteTransaction(id: number) {
     await api.delete(`/transactions/${id}`);
@@ -32,7 +32,7 @@ export function useApiTransactions() {
   return {
     getTransactions,
     createTransaction,
-    // updateTransaction,
+    updateTransaction,
     deleteTransaction,
   };
 }
