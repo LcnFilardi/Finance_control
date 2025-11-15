@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState, type ReactNode } from "react";
-import { createContext } from "use-context-selector";
-import { useApiTransactions } from "../hooks/usetransactions";
+import { createContext, useEffect, useState, type ReactNode } from "react";
+import { useApiTransactions } from "../hooks/useTransactions";
 interface Transactions {
     id: number;
     description: string;
@@ -11,6 +10,7 @@ interface Transactions {
 }
 interface TransactonsContextType {
     transactions: Transactions[];
+    setTransactions: React.Dispatch<React.SetStateAction<Transactions[]>>;
 }
 interface TransactionsProviderProps {
     children: ReactNode;
@@ -45,7 +45,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     return (
         <TransactionsContext.Provider
             value={{
-                transactions
+                transactions,
+                setTransactions,
             }}
         >
             {children}

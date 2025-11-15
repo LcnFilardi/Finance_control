@@ -1,21 +1,31 @@
 
 import { Pencil, Trash } from "phosphor-react";
-import { useContextSelector } from "use-context-selector";
+import { useContext } from "react";
 import { Header } from "../../components/Header";
+import { SearchForm } from "../../components/SearchForm";
 import { Summary } from "../../components/Summary";
 import { TransactionsContext } from "../../contexts/TransactionsContext";
+import { useApiTransactions } from "../../hooks/useTransactions";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
 import {
   PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
 } from "./styles";
-import { SearchForm } from "../../components/SearchForm";
 
 export function Transations() {
-  const transactions  = useContextSelector(TransactionsContext, (context) =>  {
-    return context.transactions
-  });
+
+  const { transactions, setTransactions } = useContext(TransactionsContext);
+
+  const { updateTransaction, deleteTransaction } = useApiTransactions();
+
+  async function handleDelete(id: number) {
+
+    await deleteTransaction(id);
+
+    // Atualiza o estado global do context
+    setTransactions((prev) => prev.filter((t) => t.id !== id));
+  }
 
   return (
     <div>
@@ -27,7 +37,7 @@ export function Transations() {
 
         <TransactionsTable>
           <table>
-            {/* 🧭 Cabeçalho da tabela */}
+
             <thead>
               <tr>
                 <th>Descrição</th>
@@ -54,10 +64,11 @@ export function Transations() {
                       {dateFormatter.format(new Date(transaction.createdAt))}
                     </td>
                     <td>
-                      <Pencil/>
-                      <Trash/>
+                      <Pencil />
+                      <button onClick={() => handleDelete(transaction.id)}>
+                        <Trash />
+                      </button>
                     </td>
-                    
                   </tr>
                 );
               })}

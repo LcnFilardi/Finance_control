@@ -1,20 +1,28 @@
 {
   "transactions": [
     {
-      "id": "1",
-      "description": "Desenvolvimento de software",
+      "id": "e2b7",
+      "description": "Investimento",
       "type": "entry",
-      "category": "Venda",
-      "value": 1400,
-      "createdAt": "2025-10-27T03:15:49.315Z"
+      "category": "Lucro",
+      "value": 3700,
+      "createdAt": "2025-11-15T15:20:46.506Z"
     },
     {
-      "id": "077b",
-      "description": "bk",
+      "id": "668d",
+      "description": "Valor em espécie",
+      "type": "entry",
+      "category": "Lucro",
+      "value": 800,
+      "createdAt": "2025-11-15T15:23:25.295Z"
+    },
+    {
+      "id": "8842",
+      "description": "Cartão de crédito Itaú",
       "type": "exit",
-      "category": "Alimentação",
-      "value": 50,
-      "createdAt": "2025-11-15T00:08:16.067Z"
+      "category": "Crédito",
+      "value": 550,
+      "createdAt": "2025-11-15T15:24:56.503Z"
     }
   ]
 }

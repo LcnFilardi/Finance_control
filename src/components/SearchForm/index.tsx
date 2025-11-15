@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { MagnifyingGlass } from "phosphor-react";
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
-import { useApiTransactions } from "../../hooks/usetransactions";
+import { useApiTransactions } from "../../hooks/useTransactions";
 import { SearchFormContainer } from "./styles";
 
 const searchFormSchema = z.object({
