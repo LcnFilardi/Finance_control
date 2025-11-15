@@ -1,15 +1,16 @@
 
+import { Pencil, Trash } from "phosphor-react";
+import { useContextSelector } from "use-context-selector";
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
-import { SearchForm } from "../../components/SearchForm";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
 import {
   PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
 } from "./styles";
-import { TransactionsContext } from "../../contexts/TransactionsContext";
-import { dateFormatter, priceFormatter } from "../../utils/formatter";
-import { useContextSelector } from "use-context-selector";
+import { SearchForm } from "../../components/SearchForm";
 
 export function Transations() {
   const transactions  = useContextSelector(TransactionsContext, (context) =>  {
@@ -33,6 +34,7 @@ export function Transations() {
                 <th>Valor</th>
                 <th>Categoria</th>
                 <th>Data</th>
+                <th>Ações</th>
               </tr>
             </thead>
 
@@ -51,6 +53,11 @@ export function Transations() {
                     <td>
                       {dateFormatter.format(new Date(transaction.createdAt))}
                     </td>
+                    <td>
+                      <Pencil/>
+                      <Trash/>
+                    </td>
+                    
                   </tr>
                 );
               })}
