@@ -9,60 +9,12 @@
       "createdAt": "2025-10-27T03:15:49.315Z"
     },
     {
-      "id": "2",
-      "description": "Compra de roupa",
+      "id": "077b",
+      "description": "bk",
       "type": "exit",
-      "category": "Compra",
-      "value": 500,
-      "createdAt": "2025-10-01T03:15:19.315Z"
-    },
-    {
-      "id": "3",
-      "description": "Cartão de crédito",
-      "type": "exit",
-      "category": "Compra",
-      "value": 230,
-      "createdAt": "2025-10-23T03:15:19.315Z"
-    },
-    {
-      "id": "105b",
-      "description": "oi",
-      "category": "venda",
-      "type": "exit",
-      "value": 12,
-      "createdAt": "2025-11-07T21:44:40.634Z"
-    },
-    {
-      "id": "5aa6",
-      "description": "iai",
-      "category": "iaiaiaiaiaiaiaiaiaiaa",
-      "type": "entry",
-      "value": 5,
-      "createdAt": "2025-11-12T22:12:21.770Z"
-    },
-    {
-      "id": "abc6",
-      "description": "l",
-      "category": "kokoko",
-      "type": "exit",
-      "value": -5,
-      "createdAt": "2025-11-12T22:19:07.966Z"
-    },
-    {
-      "id": "515d",
-      "description": "u",
-      "category": "u",
-      "type": "exit",
-      "value": 54,
-      "createdAt": "2025-11-13T00:54:07.807Z"
-    },
-    {
-      "id": "c797",
-      "description": "sdfsdf",
-      "category": "sfdsf",
-      "type": "entry",
-      "value": 10000,
-      "createdAt": "2025-11-13T00:54:34.940Z"
+      "category": "Alimentação",
+      "value": 50,
+      "createdAt": "2025-11-15T00:08:16.067Z"
     }
   ]
 }
